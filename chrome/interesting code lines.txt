@@ -1,0 +1,6 @@
+markdown_here.log(window);
+
+document.defaultView.getSelection().getRangeAt(0)
+
+
+> !GetCurrentEditor(){

@@ -1,1 +1,7 @@
-content     shakedgreenfeld    content/
+content ynote chrome/content/
+skin    ynote default/1.0 chrome/skin/
+overlay chrome://messenger/content/folderProps.xul chrome://ynote/content/folderProps.xul
+
+
+content     second_letter_red_shakedgreenfeld    chrome/content/
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://second_letter_red_shakedgreenfeld/content/make_red_compose.xul
