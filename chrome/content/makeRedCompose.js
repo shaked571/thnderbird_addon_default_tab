@@ -1,11 +1,10 @@
 var isMakeRedButtonChecked = false;
 
 function buildMakeRed() {
-    var { Cc, Ci } = require("chrome");
-    var Application = Cc["@mozilla.org/steel/application;1"]
-        .getService(Ci.steelIApplication);
+    //var Application = Cc["@mozilla.org/steel/application;1"]
+    //    .getService(Ci.steelIApplication);
     Application.console.log('In Build Make Red!');
-    isMakeRedButtonChecked = document.getElementById('makeredbutton').checked;
+    isMakeRedButtonChecked = document.getElementById('makered').checked;
 
     let editor = GetCurrentEditor();
 
