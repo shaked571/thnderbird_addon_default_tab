@@ -17,7 +17,7 @@ function buildMakeRed() {
 
 	if (!isMakeRedButtonChecked && textOri) {
 		if (nbHtmlAsciiUpdate > 1) {
-			if (window.confirm(Do you wish to make every second charechter red?")) {
+			if (window.confirm("Do you wish to make every second charechter red?")) {
 				editor.selection.deleteFromDocument();
 				html = textOri;
 				nbHtmlAsciiUpdate = 0;

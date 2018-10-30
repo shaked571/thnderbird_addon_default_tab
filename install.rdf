@@ -1,19 +1,22 @@
 <?xml version="1.0"?>
+
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
   <Description about="urn:mozilla:install-manifest">
-    <em:id>second_letter_red_shakedgreenfeld </em:id>
-    <em:name>second_letter_red</em:name>
-    <em:version>1.0</em:version>
-    <em:creator>Refael_Greenfeld</em:creator>
+    <em:id>shakedGreen@sh</em:id>
+    <em:name>second letter red</em:name>
    <em:description>Make the second letter in your inbox to red</em:description>
-    
-	<em:targetApplication>
+    <em:version>1.1</em:version>
+    <em:creator>Refael</em:creator>
+   
+    <em:targetApplication>
       <Description>
         <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
         <em:minVersion>1.5</em:minVersion>
-        <em:maxVersion>52.*</em:maxVersion>
+        <em:maxVersion>59.*</em:maxVersion>
       </Description>
     </em:targetApplication>
+   
   </Description>      
 </RDF>

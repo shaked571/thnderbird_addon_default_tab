@@ -1,9 +1,8 @@
 <?xml version="1.0"?>  
-<?xml-stylesheet type="text/css" href="chrome://asciidoctor_tb/content/button.css"?>
+<?xml-stylesheet type="text/css" href="chrome://secondletterredshakedgreenfeld/content/button.css"?>
 <overlay id="sample"   
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">  
-<script type="application/javascript" src="chrome://asciidoctor_tb/content/asciidoctor.js"/>
-<script type="application/javascript" src="chrome://asciidoctor_tb/content/highlight/highlight.min.js"/>
+<script type="application/javascript" src="chrome://secondletterredshakedgreenfeld/content/makeRedCompose.js"/>
 <toolbar class="chromeclass-toolbar" id="FormatToolbar"> 
 <toolbarbutton xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="makered" class="makeredbutton" tooltiptext="this will make the second letter of the text red " insertbefore="smileButtonMenu" accesskey="P"  oncommand="buildAscii()" type="checkbox" disabled="false" />
  </toolbar>  
