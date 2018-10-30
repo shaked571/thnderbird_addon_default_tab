@@ -1,0 +1,2 @@
+how a one letter red text look like:
+<head></head><body text="#000000" bgcolor="#FFFFFF">s<font color="#ff0000">s</font>s<font color="#ff0000">s</font>s<font color="#ff0000">c</font>s<font color="#ff0000">d</font>c<font color="#ff0000">d</font>s<font color="#ff0000">c</font></body>
