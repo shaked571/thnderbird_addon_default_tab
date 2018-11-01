@@ -5,30 +5,28 @@ function buildMakeRed() {
     isMakeRedButtonChecked = document.getElementById('makered').checked;
 
     let editor = GetCurrentEditor();
-    //let codes = doc.getElementsByTagName('code');    
 
     editor.beginTransaction();
     editor.selectAll();
 
-    let selection = editor.selection.toString();
     let newRedHtml = '<head></head><body text="#000000" bgcolor="#FFFFFF">';
     let redFontStrat = '<font color="#ff0000">';
     let redFontEnd = '</font>';
     let newLine = '<br>';
     //TODO need to make text black at first
-    let documentHtml = editor.document.documentElement.innerHTML;
+    let stringHtml = editor.document.getElementByTagName('body');
     if (!isMakeRedButtonChecked) {
         if (window.confirm("Do you wish to make every second charechter red?")) {
-            var lines = documentHtml.split('<br>');
+            var lines = (stringHTML["0"].innerHTML).split('<br>');
             for (var i = 0; i < lines.length; i++) {
                 var chars = (lines[i]).split("");
-                for (var i = 0; i < chars.length; i++) {
-                    if (i % 2 == 0) {
-                        newRedHtml += (redFontStrat + chars[i] + redFontEnd);
+                for (var j = 0; j < chars.length; j++) {
+                    if (j % 2 === 0) {
+                        newRedHtml += (redFontStrat + chars[j] + redFontEnd);
+                        console.log(newRedHtml)
                     } else {
-                        newRedHtml += chars[i];
+                        newRedHtml += chars[j];
                     }
-                    newRedHtml += '<span>' + chars[i] + '</span>';
                 }
                 newRedHtml += newLine;
             }
@@ -42,13 +40,6 @@ function buildMakeRed() {
             }
     } else {
         isMakeRedButtonChecked = false;
-        //textOri = editor.document.documentElement.innerHTML;
-        //editor.selection.deleteFromDocument();
-        //editor.insertHTML(doc.documentElement.innerHTML);
     }
-    //var editor_type = GetCurrentEditorType();
-    //editor.beginningOfDocument(); // seek to beginning  
-    //editor.insertLineBreak();
     editor.endTransaction();
-
 }
