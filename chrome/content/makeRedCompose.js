@@ -1,26 +1,3 @@
-var isMakeRedButtonChecked = false;
-var newRedHtml = '<head></head><body text="#000000" bgcolor="#FFFFFF">';
-var redFontStrat = '<font color="#ff0000">';
-var redFontEnd = '</font>';
-var newLine = '<br>';
-function paintLine(line){
-    var newRedHtml = "";
-    if(line === ""){
-        return newRedHtml;
-    }
-    var newRedHtml = "";
-    var text = line.split(/(<[a-z]+>|<\[a-z]+>)/);
-    for (var j = 0; j < text.length; j++) {
-        if (j % 2 === 0) {
-            newRedHtml += text[j].fontcolor("red") ;
-            console.log(newRedHtml)
-        } else {
-            newRedHtml += text[j];
-        }
-    }
-    newRedHtml += newLine;
-    return newRedHtml;
-}
 function addColor(domNode, color){
 	if(domNode.nodeType!=1||!domNode.hasAttribute('edited')){
 		if(domNode.nodeType==3){
@@ -47,28 +24,20 @@ function addColor(domNode, color){
 	}
 } 
 
-// addColor(document.getElementById('phrase'), 'red', 'e');
 function buildMakeRed() {
     Application.console.log('In Build Make Red!');
     isMakeRedButtonChecked = document.getElementById('makered').checked;
     let editor = GetCurrentEditor();
-     editor.beginTransaction();
-     editor.selectAll();
-
+    editor.beginTransaction();
+    editor.selectAll();
     let nodes = editor.document.body.cloneNode(true);
-
-    if (isMakeRedButtonChecked) {
-        if (window.confirm("Do you wish to make every second charechter red?")) {
-            addColor(nodes, 'red');
-            
-            editor.selection.deleteFromDocument();
-            editor.document.body.innerHTML = nodes.innerHTML;
-                    
-            } else {
-                document.getElementById('makered').checked = true;
-            }
+    if (window.confirm("Do you wish to make every second charechter red?\n"+
+                       "If you have preform it once on the feature won't work!")) { //This wont work because the way we "sign" the traversed nodes in the html
+        addColor(nodes, 'red'); //can be changed to any color in the fututre 
+        editor.selection.deleteFromDocument();
+        editor.document.body.innerHTML = nodes.innerHTML;             
     } else {
-        isMakeRedButtonChecked = false;
+        document.getElementById('makered').checked = true;
     }
-    // editor.endTransaction();
+    editor.endTransaction();
 }
