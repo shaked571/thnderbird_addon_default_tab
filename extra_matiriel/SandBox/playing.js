@@ -20,11 +20,23 @@ function buildMakeRed() {
     //TODO need to make text black at first
     // let documentHtml = editor.document.documentElement.innerHTML;
     newDoc = document.implementation.createHTMLDocument('title');
-	var htmlDoc = newDoc.createElement( 'html' );
-    htmlDoc.innerHTML = '<head></head><body text="#000000" bgcolor="#FFFFFF">ab!<br>cc<br>d<br>Z<br></body>';
+    var htmlDoc = newDoc.createElement( 'html' );
+    var hh = '<font color="#ff0000">a</font>z<br>b<br>nmm<b>md</b>d<br>d&nbsp; s ss<br><ul><li>dd</li><li>dd</li><li>d</li><li>d<br></li></ul>';
+
+    htmlDoc.innerHTML = '<head></head><body text="#000000" bgcolor="#FFFFFF">'+hh+'</body>';
     let stringHTML = htmlDoc.getElementsByTagName( 'body' );
 
     // documentHtml = '<head></head><body text="#000000" bgcolor="#FFFFFF">ab!<br>cc<br>d<br>Z<br></body>';
+    var reg = /^(\<br\>|\<p\>|\<\/p\>)/;
+    var lines;
+// var hdkmjdl ="";
+//     while((lines = reg.exec(stringHTML.innerHTML)) !== null){
+//         hdkmjdl += paintLine(lines)
+//     }
+    
+    var arr = [];
+    for(var i = 0, n; n = stringHTML[0].childNodes[i]; ++i) arr.push(n);
+        
     if (!isMakeRedButtonChecked) {
         if (window.confirm("Do you wish to make every second charechter red?")) {
             var lines = (stringHTML["0"].innerHTML).split('<br>');
@@ -64,5 +76,28 @@ function buildMakeRed() {
     //editor.insertLineBreak();
     // editor.endTransaction();
 
+}
+var isMakeRedButtonChecked = false;
+var newRedHtml = '<head></head><body text="#000000" bgcolor="#FFFFFF">';
+var redFontStrat = '<font color="#ff0000">';
+var redFontEnd = '</font>';
+var newLine = '<br>';
+function paintLine(line){
+    var newRedHtml = "";
+    if(line === ""){
+        return newRedHtml;
+    }
+    var newRedHtml = "";
+    var text = line.split(/(<[a-z]+>|<\[a-z]+>)/);
+    for (var j = 0; j < text.length; j++) {
+        if (j % 2 === 0) {
+            newRedHtml += (redFontStrat + text[j] + redFontEnd);
+            console.log(newRedHtml)
+        } else {
+            newRedHtml += text[j];
+        }
+    }
+    newRedHtml += newLine;
+    return newRedHtml;
 }
 buildMakeRed();
