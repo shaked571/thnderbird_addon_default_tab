@@ -8,7 +8,7 @@ function addColor(domNode, color){
 			var text = newText.innerHTML.split('').map(function(el){
 			  if(i%2 == 0){
                   i++;
-				return '<i style=\"color:'+color+'\">'+el+'</i>';
+				return '<span style=\"color:'+color+'\">'+el+'</span>';
 			  }
 			  else{
                   i++;
