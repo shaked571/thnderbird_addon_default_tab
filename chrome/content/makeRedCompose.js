@@ -1,14 +1,16 @@
+const TextType = 3; 
+
 function addColor(domNode, color){
-	if(domNode.nodeType!=1||!domNode.hasAttribute('edited')){
-		if(domNode.nodeType==3){
-			var newText=document.createElement('span');    
-			newText.innerHTML=domNode.textContent;
+	if(domNode.nodeType != 1|| !domNode.hasAttribute('edited')){
+		if(domNode.nodeType == TextType){
+			var newText = document.createElement('span');    
+			newText.innerHTML = domNode.textContent;
             newText.setAttribute('edited', true);
             var i = 0;
 			var text = newText.innerHTML.split('').map(function(el){
-			  if(i%2 == 0){
+			  if(i % 2 == 0){
                   i++;
-				return '<span style=\"color:'+color+'\">'+el+'</span>';
+				return '<span style=\"color:'+color+'\">' + el + '</span>';
 			  }
 			  else{
                   i++;
@@ -18,7 +20,7 @@ function addColor(domNode, color){
 		  newText.innerHTML=text;
 		  domNode.parentNode.replaceChild(newText,domNode);
 		}
-		for(var i=0; i<domNode.childNodes.length;i++){
+		for(var i = 0; i < domNode.childNodes.length; i++){
 			addColor(domNode.childNodes[i], color);
 		}
 	}
