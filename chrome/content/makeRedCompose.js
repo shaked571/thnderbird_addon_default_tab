@@ -31,12 +31,11 @@ function buildMakeRed() {
     Application.console.log('In Build Make Red!');
     isMakeRedButtonChecked = document.getElementById('makered').checked;
     
-    
-    var nodes = editor.document.body.cloneNode(true);
+    var editor = GetCurrentEditor();
     if (window.confirm("Do you wish to make every second charechter red?\n"+
                        "If you have already done it once on the message, it won't work again.")) { //This wont work because the way we "sign" the traversed nodes in the html    
-                       
-                       var editor = GetCurrentEditor();
+                       var nodes = editor.document.body.cloneNode(true);
+
                        editor.beginTransaction();
                        addColor(nodes, 'red'); //can be changed to any color in the fututre 
                        editor.selection.deleteFromDocument();
