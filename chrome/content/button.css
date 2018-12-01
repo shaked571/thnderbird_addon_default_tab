@@ -1,2 +1,9 @@
-.makeredbutton
-{list-style-image: url("chrome://secondletterredshakedgreenfeld/content/make_red_icon.png");}
+
+/* skin/toolbar-button.css */ 
+#makeredbutton { 
+    list-style-image: url("chrome://secondletterredshakedgreenfeld/content/make_red_icon.png"); 
+} toolbar[iconsize="small"] 
+
+#makeredbutton { 
+    list-style-image: url("chrome://secondletterredshakedgreenfeld/content/make_red_icon.png"); 
+}
