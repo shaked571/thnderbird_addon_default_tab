@@ -4,7 +4,16 @@
 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">  
 <script type="application/javascript" src="chrome://secondletterredshakedgreenfeld/content/makeRedCompose.js"/>
 <toolbar class="chromeclass-toolbar" id="FormatToolbar"> 
-<toolbarbutton xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="makered" class="makeredbutton" tooltiptext="this will make the second letter of the text red " insertbefore="smileButtonMenu" accesskey="P"  oncommand="buildMakeRed()" type="checkbox" disabled="false" orient="horizontal"
+<toolbarbutton xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+    id="makeredbutton" 
+    class="makeredbutton"
+    tooltiptext="This will make the second letter of the text red"
+    insertbefore="smileButtonMenu"
+    accesskey="P"  
+    oncommand="buildMakeRed()"
+    type="checkbox" 
+    disabled="false" 
+    orient="horizontal"
  />
  </toolbar>  
 </overlay> 
