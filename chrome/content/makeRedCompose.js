@@ -28,7 +28,10 @@ function makeRedAddColor(domNode, color){
 } 
 
 function makeRedNoEdit(domNode){
-	return domNode.innerHTML.replace(/edited="true"/g,'');	
+    var allDocuments = domNode.getElementsByTagName("*");
+    for (var i=0; i < allDocuments.length; i++) {
+        allDocuments[i].removeAttribute('edited');
+    }
 } 
 
 function buildMakeRed() {
@@ -40,9 +43,9 @@ function buildMakeRed() {
                        var nodes = editor.document.body.cloneNode(true);
                        editor.beginTransaction();
                        makeRedAddColor(nodes, 'red'); //can be changed to any color in the fututre 
-                       
+                       makeRedNoEdit(nodes);
                        editor.selection.deleteFromDocument();
-                       editor.document.body.innerHTML = makeRedNoEdit(nodes);  
+                       editor.document.body.innerHTML = nodes.innerHTML;  
                        editor.endTransaction();
          
     } 
